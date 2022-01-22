@@ -1,0 +1,175 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 1,
+      "title": "Appsmith",
+      "description": "A low code, open-source framework to build internal applications",
+      "image": "appsmith/appsmith-ce:latest",
+      "name": "appsmith",
+      "logo": "https://raw.githubusercontent.com/abra7134/portainer-templates/main/logos/appsmith.avif",
+      "volumes": [
+        {
+          "container": "/appsmith-stacks"
+        }
+      ],
+      "ports": [
+        "8080:80/tcp",
+        "8443:443/tcp",
+        "9001:9001/tcp"
+      ],
+      "env": [
+        {
+          "name": "APPSMITH_MAIL_ENABLED",
+          "label": "Control the email service",
+          "description": "APPSMITH_MAIL_ENABLED",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "true"
+            },
+            {
+              "text": "Disabled",
+              "value": "",
+              "default": true
+            }
+          ]
+        },
+        {
+          "name": "APPSMITH_REPLY_TO",
+          "label": "The email that should receive replies by default",
+          "description": "APPSMITH_REPLY_TO"
+        },
+        {
+          "name": "APPSMITH_MAIL_HOST",
+          "label": "SMTP host of the email service",
+          "description": "APPSMITH_MAIL_HOST"
+        },
+        {
+          "name": "APPSMITH_MAIL_PORT",
+          "label": "SMTP port of the email service",
+          "description": "APPSMITH_MAIL_PORT"
+        },
+        {
+          "name": "APPSMITH_MAIL_USERNAME",
+          "label": "Username of the email service",
+          "description": "APPSMITH_MAIL_USERNAME"
+        },
+        {
+          "name": "APPSMITH_MAIL_PASSWORD",
+          "label": "Password of the email service (or API-key may sometimes)",
+          "description": "APPSMITH_MAIL_PASSWORD"
+        },
+        {
+          "name": "APPSMITH_MAIL_FROM",
+          "label": "Verified email of sender",
+          "description": "APPSMITH_MAIL_FROM"
+        },
+        {
+          "name": "APPSMITH_MAIL_SMTP_AUTH",
+          "label": "Use the SMTP-authorization",
+          "description": "APPSMITH_MAIL_SMTP_AUTH",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "true"
+            },
+            {
+              "text": "Disabled",
+              "value": "",
+              "default": true
+            }
+          ]
+        },
+        {
+          "name": "APPSMITH_MAIL_SMTP_TLS_ENABLE",
+          "label": "Use the TLS to connect via SMTP",
+          "description": "APPSMITH_MAIL_SMTP_TLS_ENABLE",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "true"
+            },
+            {
+              "text": "Disabled",
+              "value": "",
+              "default": true
+            }
+          ]
+        },
+        {
+          "name": "APPSMITH_CUSTOM_DOMAIN",
+          "label": "Make Appsmith available on a specified domain name",
+          "description": "APPSMITH_CUSTOM_DOMAIN"
+        },
+        {
+          "name": "APPSMITH_SIGNUP_DISABLED",
+          "label": "Control of signing up of new users",
+          "description": "APPSMITH_SIGNUP_DISABLED",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "",
+              "default": true
+            },
+            {
+              "text": "Disabled",
+              "value": "true"
+            }
+          ]
+        },
+        {
+          "name": "APPSMITH_SIGNUP_ALLOWED_DOMAINS",
+          "label": "A set of comma-separated e-mail domains used to restrict signups only from specified domains",
+          "description": "APPSMITH_SIGNUP_ALLOWED_DOMAINS"
+        },
+        {
+          "name": "APPSMITH_ADMIN_EMAILS",
+          "label": "A set of comma-separated e-mails that will always be allowed to sign up",
+          "description": "APPSMITH_ADMIN_EMAILS"
+        },
+        {
+          "name": "APPSMITH_OAUTH2_GOOGLE_CLIENT_ID",
+          "label": "Configure Google OAuth client id to enable login via Google",
+          "description": "APPSMITH_OAUTH2_GOOGLE_CLIENT_ID"
+        },
+        {
+          "name": "APPSMITH_OAUTH2_GOOGLE_CLIENT_SECRET",
+          "label": "Configure Google OAuth client secret to enable login via Google",
+          "description": "APPSMITH_OAUTH2_GOOGLE_CLIENT_SECRET"
+        },
+        {
+          "name": "APPSMITH_OAUTH2_GITHUB_CLIENT_ID",
+          "label": "Configure Github's OAuth client id to enable Login via Github",
+          "description": "APPSMITH_OAUTH2_GITHUB_CLIENT_ID"
+        },
+        {
+          "name": "APPSMITH_OAUTH2_GITHUB_CLIENT_SECRET",
+          "label": "Configure Github OAuth client secret to enable Login via Github",
+          "description": "APPSMITH_OAUTH2_GITHUB_CLIENT_SECRET"
+        },
+        {
+          "name": "APPSMITH_OAUTH2_ALLOWED_DOMAINS",
+          "label": "A set of comma-separated e-mail domains used to restrict signups only from specified domains via OAuth",
+          "description": "APPSMITH_OAUTH2_ALLOWED_DOMAINS"
+        },
+        {
+          "name": "APPSMITH_GOOGLE_MAPS_API_KEY",
+          "label": "Configure google maps API-key to enable the maps widget",
+          "description": "APPSMITH_GOOGLE_MAPS_API_KEY"
+        }
+      ],
+      "labels": [
+        {
+          "name": "com.centurylinklabs.watchtower.enable",
+          "value": "true"
+        }
+      ],
+      "restart_policy": "unless-stopped",
+      "platform": "linux",
+      "categories": [
+        "framework"
+      ]
+    }
+  ]
+}
